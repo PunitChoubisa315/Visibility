@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>हरिओम घर घंटी | आटा चक्की और पल्वराइज़र</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yantramanav:wght@500;700;900&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --flour: #F6EEDD;
+    --flour-2: #EFE3C8;
+    --wheat: #C89B3C;
+    --wheat-deep: #9C6F1F;
+    --iron: #2B2723;
+    --iron-soft: #4A4139;
+    --machine-red: #A23C2E;
+    --machine-red-deep: #7E2C21;
+    --line: rgba(43,39,35,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--flour);
+    color: var(--iron);
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand{
+    font-family: 'Yantramanav', 'Noto Sans Devanagari', sans-serif;
+    font-weight:900;
+    letter-spacing: 0.01em;
+  }
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+
+  /* Top bar */
+  .topbar{
+    background: var(--iron);
+    color: var(--flour);
+    font-size: 0.92rem;
+  }
+  .topbar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:10px; padding-bottom:10px;
+    flex-wrap:wrap; gap:8px;
+  }
+  .topbar a{color: var(--flour); opacity:0.92;}
+  .topbar .contacts{display:flex; gap:22px; flex-wrap:wrap;}
+
+  /* Header / hero */
+  header.hero{
+    position:relative;
+    padding: 56px 0 90px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 78% 15%, rgba(200,155,60,0.28), transparent 55%),
+      var(--flour);
+    border-bottom: 6px solid var(--iron);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items:center;
+    gap: 40px;
+  }
+  .brand-row{display:flex; align-items:center; gap:14px; margin-bottom:34px;}
+  .brand-mark{width:52px; height:52px; flex:none;}
+  .brand{font-size:1.55rem; color:var(--iron); line-height:1.1;}
+  .brand small{display:block; font-family:'Noto Sans Devanagari'; font-weight:600; font-size:0.62rem; letter-spacing:0.18em; color:var(--wheat-deep); margin-top:2px;}
+
+  .hero h1{
+    font-size: 3.1rem;
+    line-height:1.12;
+    color: var(--iron);
+    margin-bottom: 20px;
+  }
+  .hero h1 span{color: var(--machine-red);}
+  .hero p.lead{
+    font-size:1.15rem;
+    color: var(--iron-soft);
+    max-width: 46ch;
+    margin-bottom: 30px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding: 14px 26px;
+    font-family:'Yantramanav'; font-weight:700; font-size:1.02rem;
+    border-radius:3px;
+    border: 2px solid var(--iron);
+  }
+  .btn-primary{background: var(--machine-red); color:#fff; border-color:var(--machine-red);}
+  .btn-primary:hover{background:var(--machine-red-deep); border-color:var(--machine-red-deep);}
+  .btn-ghost{background:transparent; color:var(--iron);}
+  .btn-ghost:hover{background:var(--iron); color:var(--flour);}
+
+  .hero-art{position:relative;}
+
+  /* Address strip */
+  .address-strip{
+    background: var(--iron);
+    color: var(--flour);
+    padding: 20px 0;
+  }
+  .address-strip .wrap{
+    display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+    font-size:1.05rem;
+  }
+  .address-strip .pin{color:var(--wheat); flex:none;}
+
+  /* Products */
+  section.products{padding: 78px 0 60px;}
+  .section-head{margin-bottom:44px; max-width:56ch;}
+  .section-head .kicker{
+    color:var(--machine-red); font-weight:700; font-family:'Yantramanav';
+    font-size:0.95rem; margin-bottom:8px;
+  }
+  .section-head h2{font-size:2.15rem; color:var(--iron);}
+
+  .product-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+  .card{
+    background: var(--flour-2);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding: 28px 24px 26px;
+    position:relative;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .card:hover{transform: translateY(-4px); box-shadow: 0 14px 28px rgba(43,39,35,0.14);}
+  .card .icon{width:64px; height:64px; margin-bottom:18px;}
+  .card h3{font-size:1.28rem; margin-bottom:6px; color:var(--iron);}
+  .card .tag{
+    font-size:0.82rem; color:var(--iron-soft); margin-bottom:18px;
+  }
+  .card .price{
+    font-family:'Yantramanav'; font-weight:900; font-size:1.9rem;
+    color: var(--machine-red-deep);
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+  }
+  .card .price sup{font-size:1rem; font-weight:700; margin-right:2px;}
+  .card.feature{background: var(--iron); color:var(--flour);}
+  .card.feature h3, .card.feature .tag{color:var(--flour);}
+  .card.feature .tag{opacity:0.75;}
+  .card.feature .price{color:var(--wheat); border-top-color: rgba(246,238,221,0.2);}
+
+  /* Why us */
+  section.why{
+    background: var(--flour-2);
+    padding: 70px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .why-grid{
+    display:grid; grid-template-columns: repeat(3,1fr); gap:32px;
+  }
+  .why-item{display:flex; gap:16px;}
+  .why-item .num{
+    font-family:'Yantramanav'; font-weight:900; font-size:2.1rem;
+    color: var(--wheat-deep); flex:none; width:52px;
+  }
+  .why-item h3{font-size:1.08rem; margin-bottom:6px;}
+  .why-item p{color:var(--iron-soft); font-size:0.96rem;}
+
+  /* Contact */
+  section.contact{padding: 78px 0 90px;}
+  .contact-box{
+    background: var(--iron);
+    color: var(--flour);
+    border-radius:6px;
+    padding: 46px;
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items:center;
+  }
+  .contact-box h2{font-size:1.9rem; margin-bottom:14px; color:#fff;}
+  .contact-box p{color: rgba(246,238,221,0.78); margin-bottom:26px; max-width:44ch;}
+  .contact-list{list-style:none; display:flex; flex-direction:column; gap:16px;}
+  .contact-list li{display:flex; align-items:center; gap:14px; font-size:1.08rem;}
+  .contact-list .dot{
+    width:38px; height:38px; border-radius:50%;
+    background: rgba(200,155,60,0.18);
+    display:flex; align-items:center; justify-content:center;
+    flex:none; color: var(--wheat);
+  }
+  .contact-list a{border-bottom:1px solid rgba(246,238,221,0.35);}
+
+  footer{
+    text-align:center;
+    padding: 26px 0 34px;
+    color: var(--iron-soft);
+    font-size:0.88rem;
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:2.3rem;}
+    .product-grid, .why-grid{grid-template-columns:1fr;}
+    .contact-box{grid-template-columns:1fr; padding:30px;}
+    .hero-art{order:-1; max-width:220px; margin:0 auto 10px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <div class="contacts">
+        <a href="tel:9998025701">📞 9998025701</a>
+        <a href="mailto:punitchoubisa9@gmail.com">✉️ punitchoubisa9@gmail.com</a>
+      </div>
+      <span>भारत गैस के सामने</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="brand-row">
+          <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="30" fill="var(--iron)"/>
+            <circle cx="32" cy="32" r="22" fill="none" stroke="var(--wheat)" stroke-width="3"/>
+            <path d="M32 14 L36 26 L48 26 L38 33 L42 45 L32 38 L22 45 L26 33 L16 26 L28 26 Z" fill="var(--wheat)"/>
+          </svg>
+          <div class="brand">हरिओम घर घंटी<small>आटा चक्की • पल्वराइज़र • मशीन सेल्स</small></div>
+        </div>
+        <h1>घर बैठे शुद्ध आटा — <span>मज़बूत चक्की मशीन</span> अब आपकी दुकान तक</h1>
+        <p class="lead">1 HP से लेकर पल्वराइज़र तक — टिकाऊ, कम बिजली खर्च करने वाली और आसान रखरखाव वाली आटा चक्की मशीनें, सीधे भारत गैस के सामने वाली हमारी दुकान से।</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:9998025701">📞 अभी कॉल करें</a>
+          <a class="btn btn-ghost" href="#products">प्रोडक्ट्स देखें</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="160" cy="160" r="150" fill="var(--flour-2)"/>
+          <circle cx="160" cy="160" r="150" fill="none" stroke="var(--iron)" stroke-width="4" stroke-dasharray="2 10"/>
+          <!-- machine stand legs -->
+          <rect x="120" y="248" width="14" height="38" fill="var(--iron-soft)"/>
+          <rect x="186" y="248" width="14" height="38" fill="var(--iron-soft)"/>
+          <rect x="112" y="282" width="30" height="6" rx="2" fill="var(--iron)"/>
+          <rect x="178" y="282" width="30" height="6" rx="2" fill="var(--iron)"/>
+          <!-- chakki body -->
+          <rect x="86" y="140" width="150" height="112" rx="10" fill="var(--iron)"/>
+          <rect x="86" y="140" width="150" height="20" rx="10" fill="var(--machine-red)"/>
+          <rect x="96" y="168" width="60" height="70" rx="4" fill="var(--iron-soft)"/>
+          <rect x="102" y="176" width="48" height="8" rx="2" fill="var(--wheat)"/>
+          <rect x="102" y="190" width="48" height="8" rx="2" fill="var(--wheat)" opacity="0.7"/>
+          <!-- grinding wheel -->
+          <circle cx="200" cy="196" r="38" fill="var(--wheat)"/>
+          <circle cx="200" cy="196" r="38" fill="none" stroke="var(--iron)" stroke-width="7"/>
+          <circle cx="200" cy="196" r="10" fill="var(--iron)"/>
+          <line x1="200" y1="158" x2="200" y2="234" stroke="var(--iron)" stroke-width="3" opacity="0.35"/>
+          <line x1="162" y1="196" x2="238" y2="196" stroke="var(--iron)" stroke-width="3" opacity="0.35"/>
+          <!-- hopper (grain inlet) -->
+          <path d="M112 112 L152 112 L142 140 L122 140 Z" fill="var(--machine-red-deep)"/>
+          <rect x="112" y="104" width="40" height="10" rx="2" fill="var(--machine-red)"/>
+          <!-- flour outlet spout -->
+          <path d="M226 234 L246 234 L252 254 L220 254 Z" fill="var(--iron-soft)"/>
+          <!-- grain flowing in -->
+          <circle cx="122" cy="92" r="4" fill="var(--wheat-deep)"/>
+          <circle cx="134" cy="84" r="4" fill="var(--wheat-deep)"/>
+          <circle cx="146" cy="92" r="4" fill="var(--wheat-deep)"/>
+          <circle cx="130" cy="100" r="3.5" fill="var(--wheat-deep)"/>
+          <!-- flour falling out -->
+          <circle cx="230" cy="268" r="3" fill="var(--flour)"/>
+          <circle cx="240" cy="276" r="3" fill="var(--flour)"/>
+          <circle cx="248" cy="266" r="3" fill="var(--flour)"/>
+          <circle cx="238" cy="262" r="2.4" fill="var(--flour)"/>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <div class="address-strip">
+    <div class="wrap">
+      <span class="pin">📍</span>
+      <span><strong>पता:</strong> भारत गैस के सामने — यहीं मिलेगी असली और टिकाऊ चक्की मशीन।</span>
+    </div>
+  </div>
+
+  <section class="products" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">हमारे प्रोडक्ट्स</div>
+        <h2>अपनी ज़रूरत के हिसाब से चक्की चुनें</h2>
+      </div>
+      <div class="product-grid">
+
+        <div class="card">
+          <svg class="icon" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--wheat)"/><rect x="16" y="24" width="32" height="20" rx="3" fill="var(--iron)"/><circle cx="32" cy="34" r="8" fill="var(--flour-2)"/></svg>
+          <h3>1 HP चक्की</h3>
+          <div class="tag">छोटे घर व कम खपत के लिए उपयुक्त</div>
+          <div class="price"><sup>₹</sup>11,699</div>
+        </div>
+
+        <div class="card feature">
+          <svg class="icon" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--machine-red)"/><rect x="14" y="22" width="36" height="24" rx="3" fill="var(--flour)"/><circle cx="32" cy="34" r="9" fill="var(--iron)"/></svg>
+          <h3>2 HP चक्की</h3>
+          <div class="tag">सबसे ज़्यादा बिकने वाला मॉडल — दुकान व मध्यम परिवार के लिए बेस्ट</div>
+          <div class="price"><sup>₹</sup>19,799</div>
+        </div>
+
+        <div class="card">
+          <svg class="icon" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="var(--wheat)"/><rect x="18" y="18" width="28" height="28" rx="6" fill="var(--iron)"/><circle cx="32" cy="32" r="7" fill="var(--flour-2)"/></svg>
+          <h3>पल्वराइज़र</h3>
+          <div class="tag">मसाले, दाल व मल्टी-ग्रेन पिसाई के लिए हैवी-ड्यूटी मशीन</div>
+          <div class="price"><sup>₹</sup>25,399</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">क्यों चुनें हमें</div>
+        <h2>हरिओम घर घंटी पर भरोसा क्यों करें</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="num">01</div>
+          <div><h3>मज़बूत निर्माण</h3><p>भारी उपयोग को झेलने वाली मशीनें, लंबे समय तक बिना खराबी के चलती हैं।</p></div>
+        </div>
+        <div class="why-item">
+          <div class="num">02</div>
+          <div><h3>वाजिब कीमत</h3><p>हर बजट के अनुसार 1 HP से लेकर पल्वराइज़र तक के विकल्प उपलब्ध।</p></div>
+        </div>
+        <div class="why-item">
+          <div class="num">03</div>
+          <div><h3>सीधा संपर्क</h3><p>दुकान पर आकर मशीन देखें या फ़ोन पर बात करके ऑर्डर करें।</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap contact-box">
+      <div>
+        <h2>आज ही अपनी चक्की बुक करें</h2>
+        <p>कीमत, डिलीवरी या इंस्टॉलेशन से जुड़ी किसी भी जानकारी के लिए सीधे कॉल करें या ईमेल भेजें।</p>
+        <a class="btn btn-primary" href="tel:9998025701">📞 9998025701 पर कॉल करें</a>
+      </div>
+      <ul class="contact-list">
+        <li><span class="dot">📍</span> भारत गैस के सामने</li>
+        <li><span class="dot">📞</span> <a href="tel:9998025701">9998025701</a></li>
+        <li><span class="dot">✉️</span> <a href="mailto:punitchoubisa9@gmail.com">punitchoubisa9@gmail.com</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 हरिओम घर घंटी — आटा चक्की व पल्वराइज़र
+  </footer>
+
+</body>
+</html>
